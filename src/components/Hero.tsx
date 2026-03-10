@@ -145,7 +145,7 @@ const Hero = () => {
               { value: "24/7", label: "Support Available" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-heading text-3xl font-bold text-foreground">{stat.value}</p>
+                <p className="font-heading text-3xl font-normal text-foreground">{stat.value}</p>
                 <p className="font-body text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             ))}

@@ -35,7 +35,7 @@ const Services = () => (
               <div className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center mb-6">
                 <s.icon className="w-5 h-5 text-background" strokeWidth={1.5} />
               </div>
-              <h3 className="font-heading text-xl font-semibold text-foreground mb-5">{s.title}</h3>
+              <h3 className="font-heading text-xl font-normal text-foreground mb-5">{s.title}</h3>
               <ul className="space-y-3">
                 {s.items.map((item) => (
                   <li key={item} className="font-body text-sm text-muted-foreground flex items-center gap-3">

@@ -32,7 +32,7 @@ const Footer = () => (
 
         {Object.entries(footerLinks).map(([category, links]) => (
           <div key={category}>
-            <h4 className="font-heading text-sm font-semibold text-foreground mb-5">{category}</h4>
+            <h4 className="font-heading text-sm font-normal text-foreground mb-5">{category}</h4>
             <ul className="space-y-3">
               {links.map((link) => (
                 <li key={link}>

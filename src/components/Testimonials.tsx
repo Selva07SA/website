@@ -51,7 +51,7 @@ const Testimonials = () => (
                   </span>
                 </div>
                 <div>
-                  <p className="font-heading text-sm font-semibold text-foreground">{t.name}</p>
+                  <p className="font-heading text-sm font-normal text-foreground">{t.name}</p>
                   <p className="font-body text-xs text-muted-foreground">{t.title}, {t.company}</p>
                 </div>
               </div>

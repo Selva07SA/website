@@ -26,7 +26,7 @@ const WhyChooseUs = () => (
               <div className="w-14 h-14 rounded-2xl bg-muted mx-auto mb-6 flex items-center justify-center group-hover:bg-foreground transition-colors duration-500">
                 <r.icon className="w-6 h-6 text-foreground group-hover:text-background transition-colors duration-500" strokeWidth={1.5} />
               </div>
-              <h3 className="font-heading text-base font-semibold text-foreground mb-3">{r.title}</h3>
+              <h3 className="font-heading text-base font-normal text-foreground mb-3">{r.title}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
             </div>
           </AnimatedSection>

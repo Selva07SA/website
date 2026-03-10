@@ -49,7 +49,7 @@ const Products = () => (
                     </li>
                   ))}
                 </ul>
-                <button className="inline-flex items-center gap-2 font-heading text-sm font-medium text-foreground group-hover:gap-3 transition-all duration-300">
+                <button className="inline-flex items-center gap-2 font-heading text-sm font-normal text-foreground group-hover:gap-3 transition-all duration-300">
                   Learn More <ArrowUpRight size={14} />
                 </button>
               </div>

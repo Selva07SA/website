@@ -17,7 +17,7 @@ const CtaSection = () => {
               backgroundSize: '32px 32px',
             }} />
             <div className="relative">
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
                 Let's Build Your Next
                 <br />Software Solution
               </h2>

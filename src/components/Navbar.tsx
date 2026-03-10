@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="section-container flex items-center justify-between h-20">
         <button
           onClick={() => scrollTo("home")}
-          className="font-heading text-xl font-bold tracking-tight text-foreground"
+          className="font-heading text-xl font-normal tracking-tight text-foreground"
         >
           Problem Info Tech
         </button>

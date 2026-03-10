@@ -24,7 +24,7 @@ const Process = () => (
           <AnimatedSection key={step.num} delay={i * 0.1}>
             <div className="relative">
               <span className="font-heading text-xs text-background/30 tracking-widest">{step.num}</span>
-              <h3 className="font-heading text-lg font-semibold mt-2 mb-3">{step.title}</h3>
+              <h3 className="font-heading text-lg font-normal mt-2 mb-3">{step.title}</h3>
               <p className="font-body text-sm text-background/60 leading-relaxed">{step.desc}</p>
             </div>
           </AnimatedSection>
