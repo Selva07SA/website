@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,7 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
-    --card: 0 0% 96%;
+    --card: 0 0% 98%;
     --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
@@ -22,7 +22,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 45%;
 
     --accent: 0 0% 96%;
     --accent-foreground: 0 0% 0%;
@@ -30,11 +30,11 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
     --ring: 0 0% 0%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 0%;
@@ -42,14 +42,8 @@
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 96%;
     --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 0 0% 90%;
+    --sidebar-border: 0 0% 92%;
     --sidebar-ring: 0 0% 0%;
-
-    /* Custom tokens */
-    --navy-light: 0 0% 96%;
-    --cyan-glow: 0 0% 0%;
-    --indigo: 0 0% 20%;
-    --grid-line: 0 0% 90%;
   }
 }
 
@@ -69,31 +63,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-6 lg:px-8;
-  }
-
-  .grid-bg {
-    background-image: 
-      linear-gradient(to right, hsl(var(--grid-line) / 0.15) 1px, transparent 1px);
-    background-size: calc(100% / 12) 100%;
-  }
-
-  .card-hover {
-    @apply border border-border transition-colors duration-300;
-  }
-  .card-hover:hover {
-    border-color: hsl(var(--cyan-glow));
-  }
-
-  .btn-primary {
-    @apply bg-primary text-primary-foreground font-heading font-semibold px-6 py-3 
-           transition-colors duration-200 hover:brightness-110 tracking-wide text-sm uppercase;
-  }
-
-  .btn-secondary {
-    @apply border border-secondary text-secondary font-heading font-semibold px-6 py-3 
-           transition-colors duration-200 hover:bg-secondary hover:text-secondary-foreground 
-           tracking-wide text-sm uppercase;
+    @apply max-w-6xl mx-auto px-6 lg:px-8;
   }
 
   .section-title {
@@ -102,6 +72,17 @@
 
   .section-subtitle {
     @apply font-body text-muted-foreground text-lg max-w-2xl;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-heading font-semibold px-8 py-3.5 rounded-full
+           transition-all duration-300 hover:scale-[1.02] hover:shadow-lg tracking-wide text-sm;
+  }
+
+  .btn-secondary {
+    @apply border border-primary text-primary font-heading font-semibold px-8 py-3.5 rounded-full
+           transition-all duration-300 hover:bg-primary hover:text-primary-foreground
+           tracking-wide text-sm;
   }
 
   .cursor-blink {
