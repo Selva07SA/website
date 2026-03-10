@@ -41,7 +41,7 @@ const Contact = () => {
                 <div className="w-12 h-12 rounded-full bg-foreground mx-auto mb-6 flex items-center justify-center">
                   <Send className="w-5 h-5 text-background" />
                 </div>
-                <p className="font-heading text-foreground text-xl font-semibold mb-2">Message sent</p>
+                <p className="font-heading text-foreground text-xl font-normal mb-2">Message sent</p>
                 <p className="font-body text-muted-foreground text-sm">We'll get back to you within 24 hours.</p>
               </div>
             ) : (

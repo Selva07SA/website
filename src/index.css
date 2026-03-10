@@ -67,7 +67,7 @@
   }
 
   .section-title {
-    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground;
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-foreground;
   }
 
   .section-subtitle {
@@ -75,12 +75,12 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground font-heading font-semibold px-8 py-3.5 rounded-full
+    @apply bg-primary text-primary-foreground font-heading font-normal px-8 py-3.5 rounded-full
            transition-all duration-300 hover:scale-[1.02] hover:shadow-lg tracking-wide text-sm;
   }
 
   .btn-secondary {
-    @apply border border-primary text-primary font-heading font-semibold px-8 py-3.5 rounded-full
+    @apply border border-primary text-primary font-heading font-normal px-8 py-3.5 rounded-full
            transition-all duration-300 hover:bg-primary hover:text-primary-foreground
            tracking-wide text-sm;
   }

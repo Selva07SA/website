@@ -46,12 +46,12 @@ const Testimonials = () => (
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <span className="font-heading text-sm font-semibold text-foreground">
+                  <span className="font-heading text-sm font-normal text-foreground">
                     {t.name.split(" ").map(n => n[0]).join("")}
                   </span>
                 </div>
                 <div>
-                  <p className="font-heading text-sm font-semibold text-foreground">{t.name}</p>
+                  <p className="font-heading text-sm font-normal text-foreground">{t.name}</p>
                   <p className="font-body text-xs text-muted-foreground">{t.title}, {t.company}</p>
                 </div>
               </div>

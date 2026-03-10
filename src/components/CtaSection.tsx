@@ -17,7 +17,7 @@ const CtaSection = () => {
               backgroundSize: '32px 32px',
             }} />
             <div className="relative">
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
                 Let's Build Your Next
                 <br />Software Solution
               </h2>
@@ -27,14 +27,14 @@ const CtaSection = () => {
               <div className="flex flex-wrap justify-center gap-4">
                 <button
                   onClick={() => scrollTo("contact")}
-                  className="bg-background text-foreground font-heading font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.02] text-sm inline-flex items-center gap-2 group"
+                  className="bg-background text-foreground font-heading font-normal px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.02] text-sm inline-flex items-center gap-2 group"
                 >
                   Book Free Consultation
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
                 <button
                   onClick={() => scrollTo("contact")}
-                  className="border border-background/30 text-background font-heading font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-background/10 text-sm"
+                  className="border border-background/30 text-background font-heading font-normal px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-background/10 text-sm"
                 >
                   Get Quote
                 </button>

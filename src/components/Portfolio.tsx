@@ -42,7 +42,7 @@ const Portfolio = () => (
                 className="absolute top-8 right-8 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
               <p className="font-body text-xs text-muted-foreground tracking-widest uppercase mb-4">{p.stack}</p>
-              <h3 className="font-heading text-2xl font-semibold text-foreground mb-3">{p.name}</h3>
+              <h3 className="font-heading text-2xl font-normal text-foreground mb-3">{p.name}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-md">{p.desc}</p>
             </div>
           </AnimatedSection>
