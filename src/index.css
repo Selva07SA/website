@@ -75,7 +75,7 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground font-heading font-semibold px-8 py-3.5 rounded-full
+    @apply bg-primary text-primary-foreground font-heading font-normal px-8 py-3.5 rounded-full
            transition-all duration-300 hover:scale-[1.02] hover:shadow-lg tracking-wide text-sm;
   }
 
