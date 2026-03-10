@@ -35,7 +35,7 @@ const Products = () => (
         {products.map((product, i) => (
           <AnimatedSection key={product.name} delay={i * 0.15}>
             <div className="group h-full bg-muted/50 rounded-2xl p-8 hover:bg-muted transition-all duration-500 relative overflow-hidden">
-              <span className="font-heading text-6xl font-bold text-muted-foreground/20 absolute top-4 right-6">
+              <span className="font-heading text-6xl font-normal text-muted-foreground/20 absolute top-4 right-6">
                 {product.num}
               </span>
               <div className="relative">
