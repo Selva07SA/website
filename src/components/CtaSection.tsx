@@ -27,7 +27,7 @@ const CtaSection = () => {
               <div className="flex flex-wrap justify-center gap-4">
                 <button
                   onClick={() => scrollTo("contact")}
-                  className="bg-background text-foreground font-heading font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.02] text-sm inline-flex items-center gap-2 group"
+                  className="bg-background text-foreground font-heading font-normal px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.02] text-sm inline-flex items-center gap-2 group"
                 >
                   Book Free Consultation
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
