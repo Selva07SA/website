@@ -9,7 +9,7 @@ const Footer = () => (
     <div className="section-container">
       <div className="grid md:grid-cols-5 gap-12">
         <div className="md:col-span-2">
-          <p className="font-heading text-xl font-bold text-foreground mb-4">Problem Info Tech</p>
+          <p className="font-heading text-xl font-normal text-foreground mb-4">Problem Info Tech</p>
           <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
             Building scalable software solutions for modern businesses.
           </p>
