@@ -14,7 +14,7 @@ const Process = () => (
     <div className="section-container">
       <AnimatedSection>
         <p className="font-body text-sm text-background/50 tracking-widest uppercase mb-4">Our Process</p>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-20">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-20">
           How we work
         </h2>
       </AnimatedSection>
