@@ -1,3 +1,6 @@
+import AnimatedSection from "./AnimatedSection";
+import { ArrowUpRight } from "lucide-react";
+
 const projects = [
   {
     name: "FinFlow Dashboard",
@@ -22,18 +25,27 @@ const projects = [
 ];
 
 const Portfolio = () => (
-  <section id="portfolio" className="py-24 border-t border-border">
+  <section id="portfolio" className="py-32">
     <div className="section-container">
-      <h2 className="section-title mb-4">Portfolio</h2>
-      <p className="section-subtitle mb-16">Selected work across industries.</p>
+      <AnimatedSection>
+        <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-4">Our Work</p>
+        <h2 className="section-title mb-6">Portfolio</h2>
+        <p className="section-subtitle mb-20">Selected work across industries.</p>
+      </AnimatedSection>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((p) => (
-          <div key={p.name} className="card-hover bg-card p-8">
-            <p className="font-heading text-xs uppercase tracking-widest text-primary mb-3">{p.stack}</p>
-            <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{p.name}</h3>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-          </div>
+        {projects.map((p, i) => (
+          <AnimatedSection key={p.name} delay={i * 0.1}>
+            <div className="group relative rounded-2xl border border-border p-10 hover:border-foreground/20 transition-all duration-500 cursor-pointer">
+              <ArrowUpRight
+                size={20}
+                className="absolute top-8 right-8 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+              <p className="font-body text-xs text-muted-foreground tracking-widest uppercase mb-4">{p.stack}</p>
+              <h3 className="font-heading text-2xl font-semibold text-foreground mb-3">{p.name}</h3>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-md">{p.desc}</p>
+            </div>
+          </AnimatedSection>
         ))}
       </div>
     </div>

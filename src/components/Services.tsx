@@ -1,4 +1,5 @@
 import { Globe, Smartphone, Cog } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const services = [
   {
@@ -19,25 +20,32 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="services" className="py-24 border-t border-border grid-bg">
+  <section id="services" className="py-32 bg-muted/30">
     <div className="section-container">
-      <h2 className="section-title mb-4">Services</h2>
-      <p className="section-subtitle mb-16">End-to-end development, from concept to deployment.</p>
+      <AnimatedSection>
+        <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-4">What We Do</p>
+        <h2 className="section-title mb-6">Services</h2>
+        <p className="section-subtitle mb-20">End-to-end development, from concept to deployment.</p>
+      </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {services.map((s) => (
-          <div key={s.title} className="card-hover bg-card p-8">
-            <s.icon className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
-            <h3 className="font-heading text-xl font-semibold text-foreground mb-4">{s.title}</h3>
-            <ul className="space-y-3">
-              {s.items.map((item) => (
-                <li key={item} className="font-body text-sm text-muted-foreground flex items-center gap-2">
-                  <span className="w-1 h-1 bg-primary rounded-full shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="grid md:grid-cols-3 gap-8">
+        {services.map((s, i) => (
+          <AnimatedSection key={s.title} delay={i * 0.15}>
+            <div className="group p-8 rounded-2xl border border-border bg-background hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+              <div className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center mb-6">
+                <s.icon className="w-5 h-5 text-background" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-heading text-xl font-semibold text-foreground mb-5">{s.title}</h3>
+              <ul className="space-y-3">
+                {s.items.map((item) => (
+                  <li key={item} className="font-body text-sm text-muted-foreground flex items-center gap-3">
+                    <span className="w-4 h-px bg-muted-foreground/40" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimatedSection>
         ))}
       </div>
     </div>

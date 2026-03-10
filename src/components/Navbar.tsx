@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = ["Home", "Products", "Services", "Portfolio", "Contact"];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id.toLowerCase());
@@ -13,21 +20,31 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
-      <div className="section-container flex items-center justify-between h-16">
-        <button onClick={() => scrollTo("home")} className="font-heading text-lg font-bold tracking-tight text-foreground">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/80 backdrop-blur-xl shadow-sm border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="section-container flex items-center justify-between h-20">
+        <button
+          onClick={() => scrollTo("home")}
+          className="font-heading text-xl font-bold tracking-tight text-foreground"
+        >
           Problem Info Tech
         </button>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
             >
               {link}
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
           <button onClick={() => scrollTo("contact")} className="btn-primary">
@@ -46,17 +63,20 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-background px-6 py-4 space-y-4">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4 border-b border-border">
           {navLinks.map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className="block w-full text-left font-body text-sm text-muted-foreground hover:text-foreground"
+              className="block w-full text-left font-body text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               {link}
             </button>
           ))}
-          <button onClick={() => scrollTo("contact")} className="btn-primary w-full text-center">
+          <button
+            onClick={() => scrollTo("contact")}
+            className="btn-primary w-full text-center"
+          >
             Get Demo
           </button>
         </div>
