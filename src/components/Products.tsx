@@ -39,7 +39,7 @@ const Products = () => (
                 {product.num}
               </span>
               <div className="relative">
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{product.name}</h3>
+                <h3 className="font-heading text-xl font-normal text-foreground mb-3">{product.name}</h3>
                 <p className="font-body text-muted-foreground text-sm mb-8 leading-relaxed">{product.description}</p>
                 <ul className="space-y-3 mb-8">
                   {product.features.map((f) => (
