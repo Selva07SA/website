@@ -6,50 +6,50 @@
 
 @layer base {
   :root {
-    --background: 216 69% 11%;
-    --foreground: 210 100% 95%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 220 50% 14%;
-    --card-foreground: 210 100% 95%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 216 69% 11%;
-    --popover-foreground: 210 100% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 187 94% 43%;
-    --primary-foreground: 216 69% 11%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 239 84% 67%;
-    --secondary-foreground: 210 100% 95%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 40% 18%;
-    --muted-foreground: 215 30% 60%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 239 84% 67%;
-    --accent-foreground: 210 100% 95%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 100% 95%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 215 30% 22%;
-    --input: 215 30% 22%;
-    --ring: 187 94% 43%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
 
     --radius: 0.25rem;
 
-    --sidebar-background: 216 69% 11%;
-    --sidebar-foreground: 210 100% 95%;
-    --sidebar-primary: 187 94% 43%;
-    --sidebar-primary-foreground: 216 69% 11%;
-    --sidebar-accent: 220 40% 18%;
-    --sidebar-accent-foreground: 210 100% 95%;
-    --sidebar-border: 215 30% 22%;
-    --sidebar-ring: 187 94% 43%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
 
     /* Custom tokens */
-    --navy-light: 220 50% 14%;
-    --cyan-glow: 187 94% 43%;
-    --indigo: 239 84% 67%;
-    --grid-line: 215 30% 22%;
+    --navy-light: 0 0% 96%;
+    --cyan-glow: 0 0% 0%;
+    --indigo: 0 0% 20%;
+    --grid-line: 0 0% 90%;
   }
 }
 
