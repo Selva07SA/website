@@ -102,7 +102,7 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-foreground leading-[1.1] min-h-[3.5em] md:min-h-[2.5em]">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-foreground leading-[1.1] min-h-[3.5em] md:min-h-[2.5em]">
             {displayText}
             {showCursor && <span className="cursor-blink text-muted-foreground font-light">|</span>}
           </h1>
@@ -145,7 +145,7 @@ const Hero = () => {
               { value: "24/7", label: "Support Available" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-heading text-3xl font-normal text-foreground">{stat.value}</p>
+                <p className="font-heading text-3xl font-light text-foreground">{stat.value}</p>
                 <p className="font-body text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             ))}
