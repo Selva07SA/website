@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const PROBLEM_TEXT = "Problem.";
+const PROBLEM_TEXT = "Problem Info Tech.";
 const FINAL_TEXT = "Powerful Software Solutions to Grow Your Business";
 
 const Hero = () => {
@@ -76,14 +76,14 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <section id="home" className="min-h-[90vh] flex pt-20 md:pt-24 relative overflow-hidden">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)',
         backgroundSize: '40px 40px',
       }} />
 
-      <div className="section-container py-32 md:py-40 relative">
+      <div className="section-container pb-12 md:pb-20 relative w-full">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
