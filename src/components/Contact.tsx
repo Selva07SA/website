@@ -3,13 +3,13 @@ import AnimatedSection from "./AnimatedSection";
 import { Send } from "lucide-react";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", date: "", time: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", date: "", time: "", message: "" });
   };
 
   return (
@@ -61,6 +61,26 @@ const Contact = () => {
                     />
                   </div>
                 ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="font-body text-sm text-foreground mb-2 block">Preferred Date (Optional)</label>
+                    <input
+                      type="date"
+                      value={form.date}
+                      onChange={(e) => setForm({ ...form, date: e.target.value })}
+                      className="w-full bg-background border border-border rounded-xl px-4 py-3.5 font-body text-foreground text-sm focus:border-foreground focus:outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-body text-sm text-foreground mb-2 block">Preferred Time (Optional)</label>
+                    <input
+                      type="time"
+                      value={form.time}
+                      onChange={(e) => setForm({ ...form, time: e.target.value })}
+                      className="w-full bg-background border border-border rounded-xl px-4 py-3.5 font-body text-foreground text-sm focus:border-foreground focus:outline-none transition-colors"
+                    />
+                  </div>
+                </div>
                 <div>
                   <label className="font-body text-sm text-foreground mb-2 block">Message</label>
                   <textarea
