@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" rx="40" fill="url(#bg)"/>
+  <g fill="url(#card)" stroke="#ffffff" stroke-opacity="0.22">
+    <rect x="70" y="120" width="660" height="220" rx="28"/>
+    <rect x="70" y="380" width="660" height="280" rx="28"/>
+    <rect x="70" y="700" width="420" height="210" rx="28"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.9">
+    <text x="90" y="90" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="42" font-weight="700">FinFlow</text>
+    <text x="90" y="145" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="20" fill-opacity="0.75">Dashboard preview</text>
+  </g>
+  <g stroke="#ffffff" stroke-opacity="0.75" stroke-width="10" stroke-linecap="round">
+    <path d="M140 560 C220 500, 270 610, 350 560 S510 520, 610 565" fill="none"/>
+  </g>
+</svg>
+

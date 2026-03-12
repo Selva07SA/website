@@ -6,21 +6,25 @@ const projects = [
     name: "FinFlow Dashboard",
     stack: "React · Node.js · PostgreSQL",
     desc: "Real-time financial analytics platform for enterprise treasury management.",
+    imageSrc: "/portfolio/finflow.svg",
   },
   {
     name: "MediTrack",
     stack: "React Native · Firebase · ML Kit",
     desc: "Patient management system with AI-powered diagnostics for regional clinics.",
+    imageSrc: "/portfolio/meditrack.svg",
   },
   {
     name: "LogiChain",
     stack: "Next.js · Python · AWS",
     desc: "End-to-end supply chain visibility platform for logistics operators.",
+    imageSrc: "/portfolio/logichain.svg",
   },
   {
     name: "EduPlatform",
     stack: "Vue.js · Django · Redis",
     desc: "Scalable learning management system serving 50K+ concurrent users.",
+    imageSrc: "/portfolio/eduplatform.svg",
   },
 ];
 
@@ -36,11 +40,16 @@ const Portfolio = () => (
       <div className="grid md:grid-cols-2 gap-6">
         {projects.map((p, i) => (
           <AnimatedSection key={p.name} delay={i * 0.1}>
-            <div className="group relative rounded-2xl border border-border p-10 hover:border-foreground/20 transition-all duration-500 cursor-pointer">
+            <div className="group relative rounded-2xl border border-border bg-[#e5e5e5] p-10 md:pr-64 lg:pr-72 hover:border-foreground/20 transition-all duration-500 cursor-pointer overflow-hidden">
               <ArrowUpRight
                 size={20}
                 className="absolute top-8 right-8 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
+              <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 w-44 lg:w-52">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border bg-background shadow-lg opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out pointer-events-none">
+                  <img src={p.imageSrc} alt={`${p.name} preview`} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              </div>
               <p className="font-body text-xs text-muted-foreground tracking-widest uppercase mb-4">{p.stack}</p>
               <h3 className="font-heading text-2xl font-normal text-foreground mb-3">{p.name}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-md">{p.desc}</p>
