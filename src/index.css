@@ -111,3 +111,18 @@
     75% { transform: translate(-4px, -4px); }
   }
 }
+
+@layer utilities {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--marquee-duration, 28s) linear infinite;
+  }
+}
