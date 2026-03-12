@@ -5,11 +5,11 @@ const footerLinks = {
 };
 
 const Footer = () => (
-  <footer className="border-t border-border py-20">
+  <footer className="border-t border-border py-20 bg-[#bebebe]">
     <div className="section-container">
       <div className="grid md:grid-cols-5 gap-12">
         <div className="md:col-span-2">
-          <p className="font-heading text-xl font-normal text-foreground mb-4">Problem Info Tech</p>
+          <p className="font-heading text-xl font-normal text-foreground mb-4">Problem</p>
           <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-xs">
             Building scalable software solutions for modern businesses.
           </p>
@@ -22,7 +22,7 @@ const Footer = () => (
               <a
                 key={social.label}
                 href={social.href}
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center font-body text-xs text-muted-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-background/60 flex items-center justify-center font-body text-xs text-muted-foreground hover:bg-foreground hover:text-background transition-all duration-300"
               >
                 {social.label}
               </a>
@@ -48,7 +48,7 @@ const Footer = () => (
 
       <div className="border-t border-border mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-body text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Problem Info Tech. All rights reserved.
+          © {new Date().getFullYear()} Problem. All rights reserved.
         </p>
         <div className="flex gap-6">
           {["Privacy Policy", "Terms of Service"].map((link) => (

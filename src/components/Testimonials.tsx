@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Problem Info Tech transformed our entire operations stack. Their CRM integration alone saved us 200+ hours per quarter.",
+    quote: "Problem transformed our entire operations stack. Their CRM integration alone saved us 200+ hours per quarter.",
     name: "Sarah Chen",
     title: "VP of Operations",
     company: "NovaTech Industries",

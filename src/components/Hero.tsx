@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const PROBLEM_TEXT = "Problem Info Tech.";
+const PROBLEM_TEXT = "Problem";
 const FINAL_TEXT = "Powerful Software Solutions to Grow Your Business";
 
 const Hero = () => {
@@ -113,7 +113,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="font-body text-muted-foreground text-lg md:text-xl leading-relaxed mt-8 max-w-xl"
           >
-            Problem Info Tech builds scalable SaaS products and custom digital
+            Problem builds scalable SaaS products and custom digital
             solutions for modern businesses.
           </motion.p>
 

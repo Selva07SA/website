@@ -34,10 +34,10 @@ const Navbar = () => {
         >
           <img
             src="/logo.png"
-            alt="Problem Info Tech"
+            alt="Problem"
             className="h-12 w-auto md:h-12 transition-transform duration-200 hover:scale-105 active:scale-100"
           />
-          <span className="sr-only">Problem Info Tech</span>
+          <span className="sr-only">Problem</span>
         </button>
 
         {/* Desktop */}

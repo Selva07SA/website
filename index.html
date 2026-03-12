@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="stylesheet" href="/preloader.css" />
     <!-- TODO: Set the document title to the name of your application -->
-    <title>Problem Info Tech — Software Solutions</title>
-    <meta name="description" content="Problem Info Tech builds scalable SaaS products and custom digital solutions for modern businesses." />
-    <meta name="author" content="Problem Info Tech" />
+    <title>Problem — Software Solutions</title>
+    <meta name="description" content="Problem builds scalable SaaS products and custom digital solutions for modern businesses." />
+    <meta name="author" content="Problem" />
 
-    <meta property="og:title" content="Problem Info Tech — Software Solutions" />
+    <meta property="og:title" content="Problem — Software Solutions" />
     <meta property="og:description" content="Scalable SaaS products and custom digital solutions for modern businesses." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://mywebsite.com/opengraph-image.png" />
@@ -22,7 +22,41 @@
   </head>
 
   <body>
+    <div id="preloader" aria-hidden="true">
+      <div class="logo-container">
+        <h1 class="logo-text">
+          <span class="text-prob">PROB</span><span class="text-lem">LEM</span>
+        </h1>
+
+        <div class="line upper-line"></div>
+        <div class="line lower-line"></div>
+      </div>
+    </div>
     <div id="root"></div>
+    <script>
+      (function () {
+        var preloader = document.getElementById("preloader");
+        if (!preloader) return;
+
+        var container = preloader.querySelector(".logo-container");
+        var remove = function () {
+          window.__PRELOADER_DONE__ = true;
+          try {
+            window.dispatchEvent(new Event("preloader:done"));
+          } catch (_) {}
+          if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        };
+
+        if (container) {
+          container.addEventListener("animationend", function (e) {
+            if (!e || e.target !== container) return;
+            if (e.animationName !== "preloaderZoomFullscreen") return;
+            remove();
+          });
+        }
+        setTimeout(remove, 4000);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
