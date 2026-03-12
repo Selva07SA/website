@@ -1,15 +1,61 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { Send } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, Send } from "lucide-react";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+
+type ContactFormState = {
+  name: string;
+  email: string;
+  date?: Date;
+  time?: string; // canonical "HH:mm"
+  timeFormat: "12h" | "24h";
+  message: string;
+};
+
+const getTomorrow = () => {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + 1);
+  return d;
+};
+
+const TIME_VALUES_30_MIN = Array.from({ length: 48 }, (_, i) => {
+  const totalMinutes = i * 30;
+  const hours24 = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${String(hours24).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+});
+
+const formatTime = (value: string, timeFormat: ContactFormState["timeFormat"]) => {
+  if (timeFormat === "24h") return value;
+
+  const [hRaw, mRaw] = value.split(":");
+  const hours24 = Number(hRaw);
+  const minutes = Number(mRaw);
+  const period = hours24 >= 12 ? "PM" : "AM";
+  const hours12 = hours24 % 12 === 0 ? 12 : hours24 % 12;
+  return `${hours12}:${String(minutes).padStart(2, "0")} ${period}`;
+};
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", date: "", time: "", message: "" });
+  const [form, setForm] = useState<ContactFormState>({
+    name: "",
+    email: "",
+    date: undefined,
+    time: undefined,
+    timeFormat: "12h",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setForm({ name: "", email: "", date: "", time: "", message: "" });
+    setForm({ name: "", email: "", date: undefined, time: undefined, timeFormat: "12h", message: "" });
   };
 
   return (
@@ -64,21 +110,93 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="font-body text-sm text-foreground mb-2 block">Preferred Date (Optional)</label>
-                    <input
-                      type="date"
-                      value={form.date}
-                      onChange={(e) => setForm({ ...form, date: e.target.value })}
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3.5 font-body text-foreground text-sm focus:border-foreground focus:outline-none transition-colors"
-                    />
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          className="w-full bg-background border border-border rounded-xl px-4 py-3.5 font-body text-foreground text-sm focus:border-foreground focus:outline-none transition-colors text-left flex items-center justify-between gap-3"
+                        >
+                          <span className={form.date ? "text-foreground" : "text-muted-foreground"}>
+                            {form.date ? format(form.date, "PPP") : "Pick a date"}
+                          </span>
+                          <CalendarIcon className="w-4 h-4 text-muted-foreground shrink-0" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent align="start" className="w-auto p-0">
+                        <Calendar
+                          mode="single"
+                          selected={form.date}
+                          onSelect={(date) => setForm({ ...form, date: date ?? undefined })}
+                          disabled={{ before: getTomorrow() }}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
                   </div>
                   <div>
                     <label className="font-body text-sm text-foreground mb-2 block">Preferred Time (Optional)</label>
-                    <input
-                      type="time"
-                      value={form.time}
-                      onChange={(e) => setForm({ ...form, time: e.target.value })}
-                      className="w-full bg-background border border-border rounded-xl px-4 py-3.5 font-body text-foreground text-sm focus:border-foreground focus:outline-none transition-colors"
-                    />
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          className="w-full bg-background border border-border rounded-xl px-4 py-3.5 font-body text-foreground text-sm focus:border-foreground focus:outline-none transition-colors text-left flex items-center justify-between gap-3"
+                        >
+                          <span className={form.time ? "text-foreground" : "text-muted-foreground"}>
+                            {form.time ? formatTime(form.time, form.timeFormat) : "Pick a time"}
+                          </span>
+                          <Clock className="w-4 h-4 text-muted-foreground shrink-0" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent align="start" className="w-64 p-2">
+                        <div className="flex items-center justify-between gap-2 px-2 py-1">
+                          <p className="font-body text-sm text-foreground">Select a time</p>
+                          <button
+                            type="button"
+                            className="font-body text-xs text-muted-foreground hover:text-foreground transition-colors"
+                            onClick={() => setForm({ ...form, time: undefined })}
+                          >
+                            Clear
+                          </button>
+                        </div>
+                        <div className="px-2 pb-2">
+                          <ToggleGroup
+                            type="single"
+                            value={form.timeFormat}
+                            onValueChange={(value) => {
+                              if (value === "12h" || value === "24h") setForm({ ...form, timeFormat: value });
+                            }}
+                            className="justify-start"
+                          >
+                            <ToggleGroupItem value="12h" aria-label="12 hour format">
+                              12h
+                            </ToggleGroupItem>
+                            <ToggleGroupItem value="24h" aria-label="24 hour format">
+                              24h
+                            </ToggleGroupItem>
+                          </ToggleGroup>
+                        </div>
+                        <ScrollArea className="h-56">
+                          <div className="p-1 space-y-1">
+                            {TIME_VALUES_30_MIN.map((value) => {
+                              const label = formatTime(value, form.timeFormat);
+                              const isSelected = form.time === value;
+                              return (
+                              <button
+                                key={value}
+                                type="button"
+                                onClick={() => setForm({ ...form, time: value })}
+                                className={`w-full text-left rounded-md px-3 py-2 font-body text-sm transition-colors hover:bg-muted ${
+                                  isSelected ? "bg-muted text-foreground" : "text-muted-foreground"
+                                }`}
+                              >
+                                {label}
+                              </button>
+                              );
+                            })}
+                          </div>
+                        </ScrollArea>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
                 <div>

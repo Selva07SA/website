@@ -30,9 +30,14 @@ const Navbar = () => {
       <div className="section-container flex items-center justify-between h-20">
         <button
           onClick={() => scrollTo("home")}
-          className="font-heading text-xl font-normal tracking-tight text-foreground"
+          className="flex items-center gap-3 font-heading text-xl font-normal tracking-tight text-foreground"
         >
-          Problem Info Tech
+          <img
+            src="/logo.png"
+            alt="Problem Info Tech"
+            className="h-12 w-auto md:h-12 transition-transform duration-200 hover:scale-105 active:scale-100"
+          />
+          <span className="sr-only">Problem Info Tech</span>
         </button>
 
         {/* Desktop */}
