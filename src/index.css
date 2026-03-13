@@ -125,4 +125,9 @@
   .animate-marquee {
     animation: marquee var(--marquee-duration, 28s) linear infinite;
   }
+
+  .animate-marquee-right {
+    animation: marquee var(--marquee-duration, 28s) linear infinite;
+    animation-direction: reverse;
+  }
 }

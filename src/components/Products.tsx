@@ -20,6 +20,12 @@ const products = [
     features: ["Stock tracking", "Supplier management", "Warehouse control"],
     num: "03",
   },
+  {
+    name: "Ticket Software",
+    description: "Manage customer support with a modern ticketing system, SLAs, and team collaboration.",
+    features: ["Ticket inbox", "SLA automation", "Team assignments"],
+    num: "04",
+  },
 ];
 
 const Products = () => (
@@ -31,7 +37,7 @@ const Products = () => (
         <p className="section-subtitle mb-20">Tools designed to simplify operations and accelerate growth.</p>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product, i) => (
           <AnimatedSection key={product.name} delay={i * 0.15}>
             <div className="group h-full bg-muted/50 rounded-2xl p-8 hover:bg-muted transition-all duration-500 relative overflow-hidden">
