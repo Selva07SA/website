@@ -1,15 +1,13 @@
 import AnimatedSection from "./AnimatedSection";
 
 const logos = [
-  "Acme Corp",
-  "Nova Labs",
-  "Vertex Systems",
-  "BlueWave",
-  "NexaWorks",
-  "CloudNine",
-  "Pioneer",
-  "BrightBridge",
-];
+  { src: "/trusted/logo-1.jpeg", alt: "Trusted company logo 1" },
+  { src: "/trusted/logo-2.jpeg", alt: "Trusted company logo 2" },
+  { src: "/trusted/logo-3.jpeg", alt: "Trusted company logo 3" },
+  { src: "/trusted/logo-4.jpeg", alt: "Trusted company logo 4" },
+  { src: "/trusted/logo-5.jpeg", alt: "Trusted company logo 5" },
+  { src: "/trusted/logo-6.jpeg", alt: "Trusted company logo 6" },
+] as const;
 
 const TrustedUs = () => (
   <section aria-label="Trusted by" className="py-20 bg-background">
@@ -22,15 +20,12 @@ const TrustedUs = () => (
       <AnimatedSection delay={0.15}>
         <div className="relative overflow-hidden">
           <div className="marquee flex w-max items-center gap-6 py-8 px-0 animate-marquee motion-reduce:animate-none">
-            {[...logos, ...logos].map((name, idx) => (
+            {[...logos, ...logos].map((logo, idx) => (
               <div
-                key={`${name}-${idx}`}
-                className="flex items-center gap-3 px-5 py-3 rounded-xl bg-background shadow-sm"
+                key={`${logo.src}-${idx}`}
+                className="flex items-center justify-center w-52 h-20 md:w-56 md:h-24 px-6 rounded-xl bg-background shadow-sm"
               >
-                <div className="w-9 h-9 rounded-lg bg-foreground/90 text-background flex items-center justify-center font-heading text-sm">
-                  {name.slice(0, 1).toUpperCase()}
-                </div>
-                <span className="font-body text-sm text-foreground whitespace-nowrap">{name}</span>
+                <img src={logo.src} alt={logo.alt} className="max-h-14 md:max-h-16 max-w-full object-contain" loading="lazy" />
               </div>
             ))}
           </div>

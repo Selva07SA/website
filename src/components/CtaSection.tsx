@@ -32,12 +32,6 @@ const CtaSection = () => {
                   Book Free Consultation
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </button>
-                <button
-                  onClick={() => scrollTo("contact")}
-                  className="border border-background/30 text-background font-heading font-normal px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-background/10 text-sm"
-                >
-                  Get Quote
-                </button>
               </div>
             </div>
           </div>

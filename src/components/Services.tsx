@@ -1,4 +1,4 @@
-import { Globe, Smartphone, Cog } from "lucide-react";
+import { Globe, Smartphone, Cog, MessageCircle } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const services = [
@@ -17,6 +17,11 @@ const services = [
     title: "Custom Software Development",
     items: ["Business automation", "Enterprise systems", "Internal tools"],
   },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp Automation",
+    items: ["Broadcast campaigns", "Auto-replies & flows", "CRM integration"],
+  },
 ];
 
 const Services = () => (
@@ -28,7 +33,7 @@ const Services = () => (
         <p className="section-subtitle mb-20">End-to-end development, from concept to deployment.</p>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map((s, i) => (
           <AnimatedSection key={s.title} delay={i * 0.15}>
             <div className="group p-8 rounded-2xl border border-border bg-background hover:shadow-xl hover:-translate-y-1 transition-all duration-500">

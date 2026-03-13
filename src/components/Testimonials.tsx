@@ -32,7 +32,8 @@ const Testimonials = () => (
         </div>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      {/* Mobile: static grid */}
+      <div className="grid md:hidden gap-8">
         {testimonials.map((t, i) => (
           <AnimatedSection key={t.name} delay={i * 0.15}>
             <div className="bg-background rounded-2xl p-8 h-full flex flex-col border border-border">
@@ -47,18 +48,53 @@ const Testimonials = () => (
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
                   <span className="font-heading text-sm font-normal text-foreground">
-                    {t.name.split(" ").map(n => n[0]).join("")}
+                    {t.name.split(" ").map((n) => n[0]).join("")}
                   </span>
                 </div>
                 <div>
                   <p className="font-heading text-sm font-normal text-foreground">{t.name}</p>
-                  <p className="font-body text-xs text-muted-foreground">{t.title}, {t.company}</p>
+                  <p className="font-body text-xs text-muted-foreground">
+                    {t.title}, {t.company}
+                  </p>
                 </div>
               </div>
             </div>
           </AnimatedSection>
         ))}
       </div>
+
+      {/* Desktop: auto-moving marquee (to the right) */}
+      <AnimatedSection delay={0.1}>
+        <div className="hidden md:block relative overflow-hidden">
+          <div className="flex w-max gap-8 animate-marquee-right" style={{ ["--marquee-duration" as any]: "26s" }}>
+            {[...testimonials, ...testimonials].map((t, idx) => (
+              <div key={`${t.name}-${idx}`} className="w-[360px] bg-background rounded-2xl p-8 border border-border">
+                <div className="flex gap-1 mb-6">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <Star key={j} size={14} className="fill-foreground text-foreground" />
+                  ))}
+                </div>
+                <blockquote className="font-body text-foreground leading-relaxed mb-8 text-sm">
+                  "{t.quote}"
+                </blockquote>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                    <span className="font-heading text-sm font-normal text-foreground">
+                      {t.name.split(" ").map((n) => n[0]).join("")}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-heading text-sm font-normal text-foreground">{t.name}</p>
+                    <p className="font-body text-xs text-muted-foreground">
+                      {t.title}, {t.company}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
     </div>
   </section>
 );
