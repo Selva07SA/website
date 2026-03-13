@@ -3,28 +3,28 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    name: "Little Devotee",
+    name: "E-commerce",
     stack: "Branding / Web Design / E-commerce",
-    desc: "A modern parenting brand rooted in Indian values, blending cultural symbolism with contemporary design to create a warm, engaging online presence.",
-    imageSrc: "/portfolio/little-devotee.jpeg",
+    desc: "A traditional dairy and sweets e-commerce platform, designed with pastoral visuals and clear product listings to emphasize authenticity, heritage, and easy online shopping.",
+    imageSrc: "/portfolio/Ecommerce.jpeg",
   },
   {
-    name: "MediTrack",
-    stack: "React Native / Firebase / ML Kit",
-    desc: "Patient management system with AI-powered diagnostics for regional clinics.",
-    imageSrc: "/portfolio/meditrack.svg",
+    name: "Mobile Shopping App",
+    stack: "React Native / Firebase ",
+    desc: "A sleek mobile shopping experience for traditional fashion, combining heritage branding with modern UI features like product listings, notifications, and seamless checkout.",
+    imageSrc: "/portfolio/meditrack.jpeg",
   },
   {
-    name: "LogiChain",
-    stack: "Next.js / Python / AWS",
-    desc: "End-to-end supply chain visibility platform for logistics operators.",
-    imageSrc: "/portfolio/logichain.svg",
+    name: "E-commerce",
+    stack: "React / Python / postgreSQL",
+    desc: "A vibrant e-commerce homepage showcasing authenticity and tradition, highlighting 100% pure cow’s milk ghee with pastoral visuals and clear product focus.",
+    imageSrc: "/portfolio/Ecomweb.jpeg",
   },
   {
-    name: "EduPlatform",
-    stack: "Vue.js / Django / Redis",
-    desc: "Scalable learning management system serving 50K+ concurrent users.",
-    imageSrc: "/portfolio/eduplatform.svg",
+    name: "Media Growth Platform",
+    stack: "React / Node.js / MongoDB",
+    desc: "A dynamic social media growth platform homepage, designed to highlight engagement-driven services with bold messaging, lifestyle visuals, and clear calls-to-action.",
+    imageSrc: "/portfolio/Mediapage.jpeg",
   },
 ];
 
@@ -40,24 +40,28 @@ const Portfolio = () => (
       <div className="grid md:grid-cols-2 gap-6">
         {projects.map((p, i) => (
           <AnimatedSection key={p.name} delay={i * 0.1} className="h-full">
-            <div className="group relative h-full rounded-2xl border border-border bg-[#e5e5e5] p-10 md:pr-72 lg:pr-80 hover:border-foreground/20 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col">
+            <div className="group relative h-full rounded-2xl border border-border bg-[#e5e5e5] p-8 md:p-10 hover:border-foreground/20 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col lg:flex-row gap-8">
               <ArrowUpRight
                 size={20}
                 className="absolute top-8 right-8 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
-              <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 w-48 lg:w-60">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out pointer-events-none bg-transparent">
+
+              <div className="flex flex-col flex-1 min-w-0 lg:flex-[0_0_42%]">
+                <p className="font-body text-xs text-muted-foreground tracking-widest uppercase mb-4">{p.stack}</p>
+                <h3 className="font-heading text-xl sm:text-2xl font-normal text-foreground mb-3">{p.name}</h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed flex-1 break-words">{p.desc}</p>
+              </div>
+
+              <div className="w-full shrink-0 lg:flex-[0_0_58%]">
+                <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-full rounded-2xl overflow-hidden bg-[#e5e5e5]">
                   <img
                     src={p.imageSrc}
                     alt={`${p.name} preview`}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.01]"
                     loading="lazy"
                   />
                 </div>
               </div>
-              <p className="font-body text-xs text-muted-foreground tracking-widest uppercase mb-4">{p.stack}</p>
-              <h3 className="font-heading text-2xl font-normal text-foreground mb-3">{p.name}</h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-md flex-1">{p.desc}</p>
             </div>
           </AnimatedSection>
         ))}
