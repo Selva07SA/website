@@ -6,19 +6,19 @@ const products = [
     name: "CRM Software",
     description: "Streamline customer relationships with intelligent lead tracking and pipeline management.",
     features: ["Lead management", "Sales pipeline", "Customer analytics"],
-    imageSrc: "/products/crm.jpeg",
+    imageSrc: "/products/crm-opt.jpeg",
   },
   {
     name: "Billing Software",
     description: "Automate invoicing, payment tracking, and tax compliance in one unified platform.",
     features: ["Invoice generation", "Payment tracking", "Tax management"],
-    imageSrc: "/products/billing.jpeg",
+    imageSrc: "/products/billing-opt.jpeg",
   },
   {
     name: "Inventory Management",
     description: "Real-time stock visibility across warehouses with supplier integration.",
     features: ["Stock tracking", "Supplier management", "Warehouse control"],
-    imageSrc: "/products/inventory.jpeg",
+    imageSrc: "/products/inventory-opt.jpeg",
   },
   {
     name: "Ticket Software",
