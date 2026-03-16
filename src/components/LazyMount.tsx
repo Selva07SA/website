@@ -5,6 +5,7 @@ interface LazyMountProps {
   className?: string;
   minHeight?: number;
   rootMargin?: string;
+  id?: string;
 }
 
 const LazyMount = ({
@@ -12,6 +13,7 @@ const LazyMount = ({
   className,
   minHeight = 320,
   rootMargin = "200px 0px",
+  id,
 }: LazyMountProps) => {
   const [mounted, setMounted] = useState(false);
   const hostRef = useRef<HTMLDivElement | null>(null);
@@ -36,7 +38,7 @@ const LazyMount = ({
   }, [mounted, rootMargin]);
 
   return (
-    <div ref={hostRef} className={className} style={!mounted ? { minHeight } : undefined}>
+    <div id={id} ref={hostRef} className={className} style={!mounted ? { minHeight } : undefined}>
       {mounted ? children : null}
     </div>
   );

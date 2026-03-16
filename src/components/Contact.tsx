@@ -174,7 +174,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-muted/30">
+    <section className="py-32 bg-muted/30">
       <div className="section-container">
         <div className="grid md:grid-cols-2 gap-20">
           <AnimatedSection>

@@ -33,7 +33,7 @@ const toWebp = (src: string) => src.replace(/\.jpe?g$/i, ".webp");
 const toAvif = (src: string) => src.replace(/\.jpe?g$/i, ".avif");
 
 const Products = () => (
-  <section id="products" className="py-32">
+  <section className="py-32">
     <div className="section-container">
       <AnimatedSection>
         <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-4">Our Products</p>

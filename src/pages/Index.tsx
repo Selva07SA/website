@@ -18,47 +18,47 @@ const Index = () => (
   <>
     <Navbar />
     <Hero />
-    <LazyMount className="content-visibility" minHeight={720}>
+    <LazyMount id="products" className="content-visibility" minHeight={720}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <Products />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={640}>
+    <LazyMount id="services" className="content-visibility" minHeight={640}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <Services />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={360}>
+    <LazyMount id="trustedus" className="content-visibility" minHeight={360}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <TrustedUs />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={640}>
+    <LazyMount id="whychooseus" className="content-visibility" minHeight={640}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <WhyChooseUs />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={520}>
+    <LazyMount id="process" className="content-visibility" minHeight={520}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <Process />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={720}>
+    <LazyMount id="portfolio" className="content-visibility" minHeight={720}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <Portfolio />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={560}>
+    <LazyMount id="testimonials" className="content-visibility" minHeight={560}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <Testimonials />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={440}>
+    <LazyMount id="ctasection" className="content-visibility" minHeight={440}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <CtaSection />
       </Suspense>
     </LazyMount>
-    <LazyMount className="content-visibility" minHeight={520}>
+    <LazyMount id="contact" className="content-visibility" minHeight={520}>
       <Suspense fallback={<div className="section-container py-24" />}>
         <Contact />
       </Suspense>

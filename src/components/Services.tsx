@@ -25,7 +25,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="services" className="py-32 bg-muted/30">
+  <section className="py-32 bg-muted/30">
     <div className="section-container">
       <AnimatedSection>
         <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-4">What We Do</p>
