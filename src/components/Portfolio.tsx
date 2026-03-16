@@ -6,25 +6,25 @@ const projects = [
     name: "E-commerce",
     stack: "Branding / Web Design / E-commerce",
     desc: "A traditional dairy and sweets e-commerce platform, designed with pastoral visuals and clear product listings to emphasize authenticity, heritage, and easy online shopping.",
-    imageSrc: "/portfolio/Ecommerce.jpeg",
+    imageSrc: "/portfolio/Ecommerce-opt.jpeg",
   },
   {
     name: "Mobile Shopping App",
     stack: "React Native / Firebase ",
     desc: "A sleek mobile shopping experience for traditional fashion, combining heritage branding with modern UI features like product listings, notifications, and seamless checkout.",
-    imageSrc: "/portfolio/meditrack.jpeg",
+    imageSrc: "/portfolio/meditrack-opt.jpeg",
   },
   {
     name: "E-commerce",
     stack: "React / Python / postgreSQL",
     desc: "A vibrant e-commerce homepage showcasing authenticity and tradition, highlighting 100% pure cow’s milk ghee with pastoral visuals and clear product focus.",
-    imageSrc: "/portfolio/Ecomweb.jpeg",
+    imageSrc: "/portfolio/Ecomweb-opt.jpeg",
   },
   {
     name: "Media Growth Platform",
     stack: "React / Node.js / MongoDB",
     desc: "A dynamic social media growth platform homepage, designed to highlight engagement-driven services with bold messaging, lifestyle visuals, and clear calls-to-action.",
-    imageSrc: "/portfolio/Mediapage.jpeg",
+    imageSrc: "/portfolio/Mediapage-opt.jpeg",
   },
 ];
 
