@@ -15,15 +15,33 @@ const Index = () => (
   <>
     <Navbar />
     <Hero />
-    <Products />
-    <Services />
-    <TrustedUs />
-    <WhyChooseUs />
-    <Process />
-    <Portfolio />
-    <Testimonials />
-    <CtaSection />
-    <Contact />
+    <div className="content-visibility">
+      <Products />
+    </div>
+    <div className="content-visibility">
+      <Services />
+    </div>
+    <div className="content-visibility">
+      <TrustedUs />
+    </div>
+    <div className="content-visibility">
+      <WhyChooseUs />
+    </div>
+    <div className="content-visibility">
+      <Process />
+    </div>
+    <div className="content-visibility">
+      <Portfolio />
+    </div>
+    <div className="content-visibility">
+      <Testimonials />
+    </div>
+    <div className="content-visibility">
+      <CtaSection />
+    </div>
+    <div className="content-visibility">
+      <Contact />
+    </div>
     <Footer />
   </>
 );

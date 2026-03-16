@@ -59,6 +59,7 @@ const Portfolio = () => (
                     alt={`${p.name} preview`}
                     className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.01]"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

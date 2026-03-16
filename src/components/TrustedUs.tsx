@@ -25,7 +25,13 @@ const TrustedUs = () => (
                 key={`${logo.src}-${idx}`}
                 className="flex items-center justify-center w-52 h-20 md:w-56 md:h-24 px-6 rounded-xl bg-background shadow-sm"
               >
-                <img src={logo.src} alt={logo.alt} className="max-h-14 md:max-h-16 max-w-full object-contain" loading="lazy" />
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-14 md:max-h-16 max-w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             ))}
           </div>

@@ -71,6 +71,7 @@ const Products = () => (
                     alt={`${product.name} preview`}
                     className="w-full h-full object-fill transition-transform duration-500 ease-out"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
