@@ -14,6 +14,12 @@ dist-ssr
 .env
 server/.env
 
+# Build analysis artifacts
+bundle-stats.html
+bundle-stats.json
+bundle-data.json
+bundle-data-parsed.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

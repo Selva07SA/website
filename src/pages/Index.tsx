@@ -1,48 +1,71 @@
+import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Products from "@/components/Products";
-import Services from "@/components/Services";
-import TrustedUs from "@/components/TrustedUs";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Process from "@/components/Process";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import CtaSection from "@/components/CtaSection";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import LazyMount from "@/components/LazyMount";
+
+const Products = lazy(() => import("@/components/Products"));
+const Services = lazy(() => import("@/components/Services"));
+const TrustedUs = lazy(() => import("@/components/TrustedUs"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const Process = lazy(() => import("@/components/Process"));
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const CtaSection = lazy(() => import("@/components/CtaSection"));
+const Contact = lazy(() => import("@/components/Contact"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => (
   <>
     <Navbar />
     <Hero />
-    <div className="content-visibility">
-      <Products />
-    </div>
-    <div className="content-visibility">
-      <Services />
-    </div>
-    <div className="content-visibility">
-      <TrustedUs />
-    </div>
-    <div className="content-visibility">
-      <WhyChooseUs />
-    </div>
-    <div className="content-visibility">
-      <Process />
-    </div>
-    <div className="content-visibility">
-      <Portfolio />
-    </div>
-    <div className="content-visibility">
-      <Testimonials />
-    </div>
-    <div className="content-visibility">
-      <CtaSection />
-    </div>
-    <div className="content-visibility">
-      <Contact />
-    </div>
-    <Footer />
+    <LazyMount className="content-visibility" minHeight={720}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <Products />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={640}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <Services />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={360}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <TrustedUs />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={640}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <WhyChooseUs />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={520}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <Process />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={720}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <Portfolio />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={560}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <Testimonials />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={440}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <CtaSection />
+      </Suspense>
+    </LazyMount>
+    <LazyMount className="content-visibility" minHeight={520}>
+      <Suspense fallback={<div className="section-container py-24" />}>
+        <Contact />
+      </Suspense>
+    </LazyMount>
+    <Suspense fallback={<div className="section-container py-16" />}>
+      <Footer />
+    </Suspense>
   </>
 );
 

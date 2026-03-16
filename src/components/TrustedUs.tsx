@@ -1,5 +1,9 @@
 import AnimatedSection from "./AnimatedSection";
 
+const isJpeg = (src: string) => /\.jpe?g$/i.test(src);
+const toWebp = (src: string) => src.replace(/\.jpe?g$/i, ".webp");
+const toAvif = (src: string) => src.replace(/\.jpe?g$/i, ".avif");
+
 const logos = [
   { src: "/trusted/logo-1.jpeg", alt: "Trusted company logo 1" },
   { src: "/trusted/logo-2.jpeg", alt: "Trusted company logo 2" },
@@ -25,13 +29,31 @@ const TrustedUs = () => (
                 key={`${logo.src}-${idx}`}
                 className="flex items-center justify-center w-52 h-20 md:w-56 md:h-24 px-6 rounded-xl bg-background shadow-sm"
               >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="max-h-14 md:max-h-16 max-w-full object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
+                {isJpeg(logo.src) ? (
+                  <picture className="block">
+                    <source srcSet={toAvif(logo.src)} type="image/avif" />
+                    <source srcSet={toWebp(logo.src)} type="image/webp" />
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-14 md:max-h-16 max-w-full object-contain"
+                      width={160}
+                      height={64}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-14 md:max-h-16 max-w-full object-contain"
+                    width={160}
+                    height={64}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
               </div>
             ))}
           </div>

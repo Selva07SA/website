@@ -1,3 +1,4 @@
+import compression from "compression";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -23,6 +24,9 @@ if (!DATABASE_URL) {
 const pool = new Pool({
   connectionString: DATABASE_URL,
   ssl: { rejectUnauthorized: false },
+  max: Number(process.env.PG_POOL_MAX || 10),
+  idleTimeoutMillis: Number(process.env.PG_IDLE_TIMEOUT_MS || 30_000),
+  connectionTimeoutMillis: Number(process.env.PG_CONN_TIMEOUT_MS || 10_000),
 });
 
 let schemaReadyPromise;
@@ -59,8 +63,15 @@ function ensureSchema() {
 }
 
 const app = express();
+app.set("trust proxy", 1);
 app.disable("x-powered-by");
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(",").map((s) => s.trim()) : true,
+    maxAge: 86400,
+  }),
+);
+app.use(compression());
 app.use(express.json({ limit: "256kb" }));
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
@@ -139,4 +150,10 @@ app.post("/api/contact", async (req, res) => {
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`API listening on http://localhost:${PORT}`);
+});
+
+// Warm schema creation in background so first user request is fast.
+ensureSchema().catch((err) => {
+  // eslint-disable-next-line no-console
+  console.error("Schema warmup failed:", err);
 });

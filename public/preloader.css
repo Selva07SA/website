@@ -20,8 +20,8 @@
   display: inline-block;
   padding: var(--container-pad-y) 0;
   transform-origin: center center;
-  /* Total loader time ~3s (delay + duration) */
-  animation: preloaderZoomFullscreen 1.2s linear 1.8s forwards;
+  /* Keep the intro snappy to avoid blocking LCP. */
+  animation: preloaderZoomFullscreen 0.8s linear 0.2s forwards;
 }
 
 #preloader .logo-text {

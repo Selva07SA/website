@@ -8,8 +8,18 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const next = window.scrollY > 20;
+        setScrolled((prev) => (prev === next ? prev : next));
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -36,6 +46,9 @@ const Navbar = () => {
             src="/logo.png"
             alt="Problem"
             className="h-12 w-auto md:h-12 transition-transform duration-200 hover:scale-105 active:scale-100"
+            width={96}
+            height={48}
+            decoding="async"
           />
           <span className="sr-only">Problem</span>
         </button>

@@ -28,6 +28,10 @@ const products = [
   },
 ];
 
+const isJpeg = (src: string) => /\.jpe?g$/i.test(src);
+const toWebp = (src: string) => src.replace(/\.jpe?g$/i, ".webp");
+const toAvif = (src: string) => src.replace(/\.jpe?g$/i, ".avif");
+
 const Products = () => (
   <section id="products" className="py-32">
     <div className="section-container">
@@ -66,13 +70,33 @@ const Products = () => (
 
               <div className="w-full shrink-0 lg:flex-[0_0_58%]">
                 <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-full rounded-2xl overflow-hidden bg-[#e5e5e5]">
-                  <img
-                    src={product.imageSrc}
-                    alt={`${product.name} preview`}
-                    className="w-full h-full object-fill transition-transform duration-500 ease-out"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {isJpeg(product.imageSrc) ? (
+                    <picture className="block w-full h-full">
+                      <source srcSet={toAvif(product.imageSrc)} type="image/avif" />
+                      <source srcSet={toWebp(product.imageSrc)} type="image/webp" />
+                      <img
+                        src={product.imageSrc}
+                        alt={`${product.name} preview`}
+                        className="w-full h-full object-fill transition-transform duration-500 ease-out"
+                        width={900}
+                        height={1200}
+                        sizes="(min-width: 1024px) 56vw, (min-width: 768px) 50vw, 100vw"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  ) : (
+                    <img
+                      src={product.imageSrc}
+                      alt={`${product.name} preview`}
+                      className="w-full h-full object-fill transition-transform duration-500 ease-out"
+                      width={900}
+                      height={1200}
+                      sizes="(min-width: 1024px) 56vw, (min-width: 768px) 50vw, 100vw"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                 </div>
               </div>
             </div>

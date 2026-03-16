@@ -1,6 +1,10 @@
 import AnimatedSection from "./AnimatedSection";
 import { ArrowUpRight } from "lucide-react";
 
+const isJpeg = (src: string) => /\.jpe?g$/i.test(src);
+const toWebp = (src: string) => src.replace(/\.jpe?g$/i, ".webp");
+const toAvif = (src: string) => src.replace(/\.jpe?g$/i, ".avif");
+
 const projects = [
   {
     name: "E-commerce",
@@ -17,7 +21,7 @@ const projects = [
   {
     name: "E-commerce",
     stack: "React / Python / postgreSQL",
-    desc: "A vibrant e-commerce homepage showcasing authenticity and tradition, highlighting 100% pure cow’s milk ghee with pastoral visuals and clear product focus.",
+    desc: "A vibrant e-commerce homepage showcasing authenticity and tradition, highlighting 100% pure cow's milk ghee with pastoral visuals and clear product focus.",
     imageSrc: "/portfolio/Ecomweb-opt.jpeg",
   },
   {
@@ -54,13 +58,33 @@ const Portfolio = () => (
 
               <div className="w-full shrink-0 lg:flex-[0_0_58%]">
                 <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-full rounded-2xl overflow-hidden bg-[#e5e5e5]">
-                  <img
-                    src={p.imageSrc}
-                    alt={`${p.name} preview`}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.01]"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {isJpeg(p.imageSrc) ? (
+                    <picture className="block w-full h-full">
+                      <source srcSet={toAvif(p.imageSrc)} type="image/avif" />
+                      <source srcSet={toWebp(p.imageSrc)} type="image/webp" />
+                      <img
+                        src={p.imageSrc}
+                        alt={`${p.name} preview`}
+                        className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+                        width={900}
+                        height={1200}
+                        sizes="(min-width: 1024px) 56vw, (min-width: 768px) 50vw, 100vw"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  ) : (
+                    <img
+                      src={p.imageSrc}
+                      alt={`${p.name} preview`}
+                      className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+                      width={900}
+                      height={1200}
+                      sizes="(min-width: 1024px) 56vw, (min-width: 768px) 50vw, 100vw"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -72,3 +96,4 @@ const Portfolio = () => (
 );
 
 export default Portfolio;
+

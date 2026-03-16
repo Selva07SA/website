@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { Star } from "lucide-react";
 
@@ -9,7 +10,7 @@ const testimonials = [
     company: "NovaTech Industries",
   },
   {
-    quote: "The team's technical depth is exceptional. They didn't just build what we asked for — they delivered something far better.",
+    quote: "The team's technical depth is exceptional. They didn't just build what we asked for - they delivered something far better.",
     name: "Marcus Rodriguez",
     title: "CTO",
     company: "Meridian Health",
@@ -66,7 +67,10 @@ const Testimonials = () => (
       {/* Desktop: auto-moving marquee (to the right) */}
       <AnimatedSection delay={0.1}>
         <div className="hidden md:block relative overflow-hidden">
-          <div className="flex w-max gap-8 animate-marquee-right" style={{ ["--marquee-duration" as any]: "26s" }}>
+          <div
+            className="flex w-max gap-8 animate-marquee-right"
+            style={{ "--marquee-duration": "26s" } as CSSProperties}
+          >
             {[...testimonials, ...testimonials].map((t, idx) => (
               <div key={`${t.name}-${idx}`} className="w-[360px] bg-background rounded-2xl p-8 border border-border">
                 <div className="flex gap-1 mb-6">
@@ -100,3 +104,4 @@ const Testimonials = () => (
 );
 
 export default Testimonials;
+
