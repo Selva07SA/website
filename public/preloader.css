@@ -20,8 +20,8 @@
   display: inline-block;
   padding: var(--container-pad-y) 0;
   transform-origin: center center;
-  /* Keep the intro snappy to avoid blocking LCP. */
-  animation: preloaderZoomFullscreen 0.8s linear 0.2s forwards;
+  /* Total loader time ~3s (delay + duration) */
+  animation: preloaderZoomFullscreen 1.2s linear 1.8s forwards;
 }
 
 #preloader .logo-text {
@@ -38,30 +38,6 @@
     2px 2px 2px rgba(0, 0, 0, 0.3),
     3px 3px 3px rgba(0, 0, 0, 0.2),
     4px 8px 10px rgba(0, 0, 0, 0.3);
-}
-
-#preloader .logo-mark {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-#preloader .preloader-logo {
-  width: clamp(64px, 10vw, 96px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.15));
-}
-
-#preloader .logo-text-fallback {
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #080808;
-  opacity: 0;
-  animation: preloaderFadeInText 0.6s ease-out 0.1s forwards;
 }
 
 #preloader .line {
