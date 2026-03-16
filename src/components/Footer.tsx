@@ -5,7 +5,7 @@ const footerLinks = {
 };
 
 const Footer = () => (
-  <footer className="border-t border-border py-20 bg-[#bebebe]">
+  <footer className="border-t border-border py-20 bg-background">
     <div className="section-container">
       <div className="grid md:grid-cols-5 gap-12">
         <div className="md:col-span-2">
@@ -22,7 +22,7 @@ const Footer = () => (
               <a
                 key={social.label}
                 href={social.href}
-                className="w-10 h-10 rounded-full bg-background/60 flex items-center justify-center font-body text-xs text-muted-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center font-body text-xs text-muted-foreground hover:bg-foreground hover:text-background transition-all duration-300"
               >
                 {social.label}
               </a>

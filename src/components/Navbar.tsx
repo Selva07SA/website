@@ -6,6 +6,7 @@ const navLinks = ["Home", "Products", "Services", "Portfolio", "Contact"];
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showLogoImage, setShowLogoImage] = useState(true);
 
   useEffect(() => {
     let ticking = false;
@@ -42,14 +43,21 @@ const Navbar = () => {
           onClick={() => scrollTo("home")}
           className="flex items-center gap-3 font-heading text-xl font-normal tracking-tight text-foreground"
         >
-          <img
-            src="/logo.png"
-            alt="Problem"
-            className="h-12 w-auto md:h-12 transition-transform duration-200 hover:scale-105 active:scale-100"
-            width={96}
-            height={48}
-            decoding="async"
-          />
+          {showLogoImage ? (
+            <img
+              src="/logo.png"
+              alt="Problem"
+              className="h-12 w-auto md:h-12 transition-transform duration-200 hover:scale-105 active:scale-100"
+              width={96}
+              height={48}
+              decoding="async"
+              onError={() => setShowLogoImage(false)}
+            />
+          ) : (
+            <span aria-hidden="true" className="inline-flex items-center h-12 px-3 rounded-lg bg-foreground text-background">
+              PROBLEM
+            </span>
+          )}
           <span className="sr-only">Problem</span>
         </button>
 
@@ -74,6 +82,7 @@ const Navbar = () => {
         <button
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
