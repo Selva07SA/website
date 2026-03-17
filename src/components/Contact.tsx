@@ -185,7 +185,7 @@ const Contact = () => {
             </p>
             <div className="space-y-4">
               {[
-                { label: "Email", value: "hello@probleminfo.tech" },
+                { label: "Email", value: "hello@problem.com" },
                 { label: "Response time", value: "Within 24 hours" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">

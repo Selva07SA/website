@@ -24,7 +24,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => (
-  <section className="py-32 bg-muted/30">
+  <section id="testimonials" className="py-32 bg-muted/30">
     <div className="section-container">
       <AnimatedSection>
         <div className="text-center max-w-2xl mx-auto mb-20">
